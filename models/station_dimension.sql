@@ -7,8 +7,8 @@ WITH BIKE AS (
     start_lat as station_lat,
     start_lng as station_lng
 
-    from {{ source('demo', 'bike') }}
-    where RIDE_ID != 'ride_id'
+    from {{ ref('stg_bike') }}
+    where RIDE_ID != '"bikeid"'
 )
 
 select *
